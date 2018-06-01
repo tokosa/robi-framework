@@ -43,7 +43,9 @@ The batch framework base is Java spring（java batch framework）
  ```
 
 # quick start
-In the quick start Iris data is classified by SVM, Nnet, NaiveBayseInitial setting
+In the quick start Iris data is classified by SVM, Nnet, NaiveBayse
+
+Initial setting
 ```
 install.packages('R6')
 install.packages("devtools")
