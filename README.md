@@ -10,7 +10,7 @@ devtools::install_github("rappster/R6", ref = "feat_interface")
 
 install.packages('rJava')
 install.packages('RJDBC')
-install.packages('eroe')
+install.packages('erer')
 install.packages('e1071')
 ```
 * open job file
