@@ -4,27 +4,42 @@ The batch framework base is Java spring（java batch framework）
 * Structure of the directory and file
 ```
 ~/robi-framework/src% tree
-.
-├── Core
-│   ├── Config.R
-│   ├── Item.R
-│   ├── ItemProcessor.R
-│   └── ItemReaderInterface.R
-├── Factory
-│   └── IrisFactory.R
-├── ItemProcessor
-│   └── IrisProcessor.R
-├── ItemReader
-│   ├── IrisRead.R
-│   └── UserRead.R
-├── Job
-│   ├── irisJob.R
-│   └── script.R.log
-├── Model
-│   └── irisModel.R
-└── Step
-    └── irisStep.R
-```
+├── README.md
+├── data
+│   ├── iris_0.1.txt
+│   ├── iris_0.2.txt
+│   ├── iris_0.3.txt
+│   ├── iris_0.4.txt
+│   ├── iris_0.5.txt
+│   ├── iris_0.6.txt
+│   ├── iris_0.7.txt
+│   ├── iris_0.8.txt
+│   └── iris_0.9.txt
+├── package.R
+├── robi-framework.Rproj
+└── src
+    ├── Core
+    │   ├── Config.R
+    │   ├── Item.R
+    │   ├── ItemItemWriterInterface.R
+    │   ├── ItemProcessor.R
+    │   └── ItemReaderInterface.R
+    ├── Factory
+    │   └── IrisFactory.R
+    ├── ItemProcessor
+    │   └── IrisProcessor.R
+    ├── ItemReader
+    │   ├── IrisRead.R
+    │   └── UserRead.R
+    ├── ItemWriter
+    │   └── IrisWriter.R
+    ├── Job
+    │   ├── irisJob.R
+    │   └── script.R.log
+    ├── Model
+    │   └── irisModel.R
+    └── Step
+        └── irisStep.R```
 
 # quick start
 Initial setting
