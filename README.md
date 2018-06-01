@@ -28,5 +28,5 @@ R CMD BATCH --slave --vanilla  src/job/irisJob.R log/irisJob.log
 ```
 * result out put to see
 ```
-data dir
+/data dir
 ```
