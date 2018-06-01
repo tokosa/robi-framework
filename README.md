@@ -57,6 +57,9 @@ install.packages('rJava')
 install.packages('RJDBC')
 install.packages('erer')
 install.packages('e1071')
+install.packages('kernlab')
+install.packages('Nnet')
+
 ```
 * open job file
 ```
