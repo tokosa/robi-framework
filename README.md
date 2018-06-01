@@ -1,4 +1,31 @@
 # Welcome to the R batch framework 
+The batch framework base is Java spring（java batch framework）
+
+* Structure of the directory and file
+```
+~/robi-framework/src% tree
+.
+├── Core
+│   ├── Config.R
+│   ├── Item.R
+│   ├── ItemProcessor.R
+│   └── ItemReaderInterface.R
+├── Factory
+│   └── IrisFactory.R
+├── ItemProcessor
+│   └── IrisProcessor.R
+├── ItemReader
+│   ├── IrisRead.R
+│   └── UserRead.R
+├── Job
+│   ├── irisJob.R
+│   └── script.R.log
+├── Model
+│   └── irisModel.R
+└── Step
+    └── irisStep.R
+```
+
 # quick start
 Initial setting
 ```
