@@ -18,7 +18,7 @@ install.packages('e1071')
 src/job/irisJob.R
 ```
 * R stuido or R console
-Select and run the script
+```Select and run the script```
 
 * R CMD
 ```
