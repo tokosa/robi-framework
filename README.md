@@ -39,7 +39,8 @@ The batch framework base is Java spring（java batch framework）
     ├── Model
     │   └── irisModel.R
     └── Step
-        └── irisStep.R```
+        └── irisStep.R
+ ```
 
 # quick start
 Initial setting
