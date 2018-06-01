@@ -1,22 +1,12 @@
-
+# This script is a superclass of ItemReader and ItemWriter
 Item<-R6Class(
   classname="Item",
-  private=list(
-    driver = JDBC(Sys.getenv('REDSHIFT_DRIVER'),Sys.getenv('REDSHIFT_DRIVER_PATH'), identifier.quote="`"),
-    url = sprintf(
-      'jdbc:redshift://%s:%s/%s?ssl=true&sslMode=verify-full&sslrootcert=%s&user=%s&password=%s',
-      Sys.getenv('REDSHIFT_HOST'),
-      Sys.getenv('REDSHIFT_PORT'),
-      Sys.getenv('REDSHIFT_DB'),
-      Sys.getenv('REDSHIFT_CA'),
-      Sys.getenv('REDSHIFT_USER'),
-      Sys.getenv('REDSHIFT_PASS'))
-  ),
   public = list(
     con    = NA,
     # constractor
     DdConnect = function(schema=NA) {
-        self$con<-dbConnect(private$driver, private$url)
+        driver <-JDBC(Sys.getenv('REDSHIFT_DRIVER'),Sys.getenv('REDSHIFT_DRIVER_PATH'), identifier.quote="`")
+        self$con<-dbConnect(driver,Sys.getenv('JDBC_URL'))
         if(!is.na(schema)){
           dbSendUpdate(self$con,paste0('set search_path to ',schema))
         }

@@ -7,7 +7,6 @@ ItemProcessor <- R6Class(
       idx<-sample(nrow(data),nrow(data)*prob)
       self$train<-data[idx,]
       self$test<-data[-idx,]
-      
     }
     
   )

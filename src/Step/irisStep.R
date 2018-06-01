@@ -5,10 +5,14 @@ IrisStep <- R6Class(
   public   = list(
     ir=NA,
     prob=NA,
-    initialize=function(prob=NA){
+    result=list(),
+    initialize=function(){
       prob<<-prob
       ir<<-IrisFactory$new()
-
+    },
+    Run=function(prob=NA){
+      prob<<-prob
+      
       StepRead()
 
       print(paste0('train:',nrow(ir$Processor$train)))
@@ -17,7 +21,8 @@ IrisStep <- R6Class(
       StepSvm()
       StepNnet()
       StepNb()
-      
+      StepWrite()
+      print('end Iris step')
     },
     StepRead=function(){
       # Item read
@@ -31,7 +36,7 @@ IrisStep <- R6Class(
       # train
       svm.res<-ir$Model$PredictSvm(ir$Processor$train,ir$Processor$test)
       # predict
-      print(table(svm.res,ir$Processor$test$Species))
+      result[['Svm']]<<-table(svm.res,ir$Processor$test$Species)
     },
     StepNnet=function(){
         # train
@@ -39,7 +44,7 @@ IrisStep <- R6Class(
       
       nnet.res<-ir$Model$PredictNnet(ir$Processor$train,ir$Processor$test)
       # predict
-      print(table(nnet.res,self$ir$Processor$test$Species))
+      result[['Nnet']]<<-table(nnet.res,ir$Processor$test$Species)
      
     },
     StepNb=function(){
@@ -48,10 +53,13 @@ IrisStep <- R6Class(
       
       nb.res<-ir$Model$PredictNb(ir$Processor$train,ir$Processor$test)
       # predict
-      print(table(nb.res,ir$Processor$test$Species))
+      result[['Nb']]<<-table(nb.res,ir$Processor$test$Species)
       
+    },
+    StepWrite=function(){
+      filename=paste0('iris_',prob,'.txt')
+      ir$Writer$ItemWrite(result,filename)
     }
-    
   )    
 )
 

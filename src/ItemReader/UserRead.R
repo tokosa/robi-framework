@@ -1,18 +1,19 @@
 UserRead <- R6Class(
   classname = "UserRead",
-  implement = ItemReader,
+  implement = ItemReaderInterface,
   inherit   = Item,
   public   = list(
     ItemRead = function() {
+      self$DdConnect()
       sql<-'select * from mp_work.users'
-      return(self$DdQuery(sql))
-      
+      return(self$DdGetQuery(sql))
     }
   )
   
 )
 
-ur<-UserRead$new()
-ur$ItemRead()
+self<-UserRead$new()
+s<-self$ItemRead()
+
 ur$DdDisconnect()
 ur$con
