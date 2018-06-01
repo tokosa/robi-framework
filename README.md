@@ -5,7 +5,7 @@ The batch framework base is Java spring（java batch framework）
 ```
 ~/robi-framework/src% tree
 ├── README.md
-├── data
+├── data             -- job result data
 │   ├── iris_0.1.txt
 │   ├── iris_0.2.txt
 │   ├── iris_0.3.txt
@@ -19,20 +19,20 @@ The batch framework base is Java spring（java batch framework）
 ├── robi-framework.Rproj
 └── src
     ├── Core
-    │   ├── Config.R
-    │   ├── Item.R
-    │   ├── ItemItemWriterInterface.R
-    │   ├── ItemProcessor.R
-    │   └── ItemReaderInterface.R
-    ├── Factory
-    │   └── IrisFactory.R
-    ├── ItemProcessor
+    │   ├── Config.R          -- This file is read at start from R　and .Rprofile
+    │   ├── Item.R            -- ItemRead and ItemWrite superclass
+    │   ├── ItemItemWriterInterface.R   --ItemWriter Interface
+    │   ├── ItemProcessor.R          
+    │   └── ItemReaderInterface.R --ItemReader Interface
+    ├── Factory               --　Factory Method 
+    │   └── IrisFactory.R     -- The Factory class dynamically changes the type of the object generated in addition to the object generation processing in the processing of the factory
+    ├── ItemProcessor         --Processors responsible for data processing implement input checking and business logic
     │   └── IrisProcessor.R
-    ├── ItemReader
+    ├── ItemReader            --Output of data
     │   ├── IrisRead.R
-    │   └── UserRead.R
-    ├── ItemWriter
-    │   └── IrisWriter.R
+    │   └── UserRead.R        -- DB access sample 
+    ├── ItemWriter            -- Write data　
+    │   └── IrisWriter.R
     ├── Job
     │   ├── irisJob.R
     │   └── script.R.log
